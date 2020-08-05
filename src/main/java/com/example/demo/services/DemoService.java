@@ -13,9 +13,14 @@ import java.util.List;
 @Service
 public class DemoService {
     private final DemoApplicationRepository repository;
+    private final PoliceService policeService;
+    private final IRSService IRS_Service;
 
-    public DemoService(DemoApplicationRepository repository) {
+
+    public DemoService(DemoApplicationRepository repository, PoliceService policeService, IRSService irs_service) {
         this.repository = repository;
+        this.policeService = policeService;
+        this.IRS_Service = irs_service;
     }
 
     public DemoList getAll() {
@@ -31,15 +36,11 @@ public class DemoService {
         DemoApplication application = new DemoApplication();
         application.setName(request.getName());
 
-        PoliceService policeStatus = new PoliceService();
-        IRSService IRS_status = new IRSService();
-
-        if(policeStatus.setPoliceStatus(application) == ResolutionStatus.SUCCESSFUL && IRS_status.setIRS_Status(application) == ResolutionStatus.SUCCESSFUL){
+        if(policeService.setPoliceStatus(application) == ResolutionStatus.SUCCESSFUL && IRS_Service.setIRS_Status(application) == ResolutionStatus.SUCCESSFUL){
             application.setStatus(ResolutionStatus.SUCCESSFUL);
         }else {
             application.setStatus(ResolutionStatus.DENY);
         }
-
 
         application = repository.save(application);
         DemoResponse response = new DemoResponse();
