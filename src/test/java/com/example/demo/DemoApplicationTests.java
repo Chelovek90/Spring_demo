@@ -22,15 +22,15 @@ class DemoApplicationTests {
 	public void setup() {
 		repository.deleteAll();
 
-//		List<DemoApplication> applicationList = Arrays.asList(
-//				new DemoApplication("Ivanov Ivan", ResolutionStatus.SUCCESSFUL),
-//				new DemoApplication("Ivanov Ivan", ResolutionStatus.BAD_CLIENT),
-//				new DemoApplication("Ivanov Ivan", ResolutionStatus.LOW_BUDGET),
-//				new DemoApplication("Ivanov Ivan", ResolutionStatus.SUCCESSFUL),
-//				new DemoApplication("Ivanov Ivan", ResolutionStatus.SUCCESSFUL),
-//				new DemoApplication("Ivanov Ivan", ResolutionStatus.SUCCESSFUL)
-//		);
-//		repository.saveAll(applicationList);
+		List<DemoApplication> applicationList = Arrays.asList(
+				new DemoApplication("Ivanov Ivan", ResolutionStatus.SUCCESSFUL),
+				new DemoApplication("Ivanov Ivan", ResolutionStatus.BAD_CLIENT),
+				new DemoApplication("Ivanov Ivan", ResolutionStatus.LOW_BUDGET),
+				new DemoApplication("Ivanov Ivan", ResolutionStatus.SUCCESSFUL),
+				new DemoApplication("Ivanov Ivan", ResolutionStatus.SUCCESSFUL),
+				new DemoApplication("Ivanov Ivan", ResolutionStatus.SUCCESSFUL)
+		);
+		repository.saveAll(applicationList);
 
 	}
 
